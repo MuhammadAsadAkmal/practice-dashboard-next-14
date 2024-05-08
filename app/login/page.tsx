@@ -10,11 +10,19 @@ import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from '@/app/ui/button';
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
+import AcmeLogo from '../ui/acme-logo';
  
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
  
   return (
+    <main className="flex items-center justify-center md:h-screen">
+      <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
+        <div className="flex h-20 w-full items-end rounded-lg bg-blue-500 p-3 md:h-36">
+          <div className="w-32 text-white md:w-36">
+            <AcmeLogo />
+          </div>
+        </div>
     <form action={dispatch} className="space-y-3">
       <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
         <h1 className={`${lusitana.className} mb-3 text-2xl`}>
@@ -76,6 +84,8 @@ export default function LoginForm() {
         </div>
       </div>
     </form>
+    </div>
+    </main>
   );
 }
  
